@@ -2346,3 +2346,1593 @@ document.addEventListener('mousemove', e =>{
 	ctx.stroke();
 });
 */
+
+
+
+
+ ///DOM///
+
+
+ /*
+ Задача 1.1 
+Напишите скрипт, который определяет тип тега с классом secret и выводит его в консоль.
+Пример заданного HTML-документа:
+
+<div class="secret">...</div>
+
+Пример результата:
+
+div 
+
+<html>
+<head>
+</head>
+<body>
+ <div class='card'>
+  <h1>Всем привет!</h1>
+   <p>
+    <span class='secret'>Удачи в решении задачи!</span>
+   </p>
+ </div>
+</body>
+
+</html>
+
+решение
+
+let el = document.querySelector('.secret');
+console.log(el.nodeName.toLowerCase());
+*/
+
+/*
+Задача 1.2
+Напишите скрипт, который определяет тип тега с идентификатором elem и выводит его в консоль.
+Пример заданного HTML-документа:
+
+<div id="elem">...</div>
+
+Пример результата:
+
+div
+
+<html>
+<head>
+</head>
+<body>
+ <div class='card'>
+  <h1>Всем привет!</h1>
+   <p>
+    <b id="elem">Удачи в решении задачи!</b>
+   </p>
+ </div>
+</body>
+
+</html>
+
+ решение:
+ 
+var span = document.getElementById("elem");
+ console.log(span.tagName.toLowerCase());задача 1.2
+*/
+
+/*
+Задача 1.3
+В HTML-документе есть несколько тегов с классом promo. 
+Напишите скрипт, который определяет количество элементов с данным классом и выводит результат в консоль.
+
+Пример заданного HTML-документа:
+<p class="promo">...</p>
+
+…
+
+<div class="promo">...</div>
+
+Пример результата:
+
+2
+
+<html>
+<head>
+</head>
+<body>
+ <div class='card promo'>
+  <h1 class='promo'>Всем привет!</h1>
+   <p>
+    <span class='secret promo'>Удачи в решении задачи!</span>
+   </p>
+ </div>
+</body>
+</html>
+
+решение
+let promo1 = document.querySelectorAll(".promo");
+console.log(promo1);
+ 
+for (let i = 0; i < promo1.length; i++) {
+  console.log(promo1.length);
+}
+*/
+
+/*
+  Задача 1.4
+  Выведите в консоль название последнего тега, у которого есть класс target.
+
+Пример заданного HTML-документа:
+
+<div class="target">Первый элемент</div>
+
+<p class="target">Второй второй</p>
+
+<span class="target">Третий третий</span>
+
+Пример результата:
+
+span
+
+<html>
+<head>
+</head>
+<body>
+ <div class='card target'>
+  <h1 class='promo'>Всем привет!</h1>
+   <p>
+    <span class='secret target'>Удачи в решении задачи!</span>
+   </p>
+   <div class='target'></div>
+ </div>
+</body>
+</html>
+  
+  решение
+  
+  let cards = document.getElementsByClassName("target");
+let result = cards[cards.length - 1]
+console.log(result);
+console.log (result.tagName.toLowerCase());
+*/
+
+
+/*
+Задача 1.5
+
+В HTML-документе существует тег с классом price и числовым значением. Напишите скрипт, который увеличивает в теге значение цены в два раза.
+
+Пример заданного HTML-документа:
+
+<div class="price">100</div>
+
+Пример результата:
+
+<div class="price">200</div>
+
+<html>
+<head>
+</head>
+<body>
+ <div class='card target'>
+  <h1 class='promo'>Всем привет!</h1>
+   <p>
+    <p class='secret target'>Очень рекомендую купить велосипед всего за <span class='price'>25000</span> рублей.</p>
+   </p>
+ </div>
+</body>
+</html>
+
+решение
+let card = document.querySelector("[class='price']");
+console.log(card);
+card.innerText = card.innerText *2
+console.log(card.innerText)
+*/
+
+/*
+Задача 1.6
+В HTML-документе есть тег <p> c классом links. Внутри этого элемента указана просто текстовая ссылка без тега <a>. Напишите скрипт, который заменит этот текст на тег <a>, а в качестве содержимого тега <a> укажет изначальный текст.
+
+Пример заданного HTML-документа:
+
+<p class="links">google.com</p>
+
+Пример результата:
+
+<p class="links"><a>google.com</a></p>
+
+<html>
+<head>
+</head>
+<body>
+ <p class="links">google.com</p>
+</body>
+</html>
+ 
+ решение
+ 
+ let card = document.querySelector(".links");
+ card.innerHTML = "<a>"+card.innerHTML+"</a>"
+ console.log(card);
+*/
+
+
+/*
+ Задача 1.7
+ В HTML-документе есть тег с классом content, внутри него есть тег <p>. Напишите скрипт, который заменит этот тег <p> на тег <b>, сохранив текст внутри этого тега.
+
+Пример заданного HTML-документа:
+
+<p class="content">
+
+<p>Внутренний текст</p>
+
+</p>
+
+Пример результата:
+
+<p class="content">
+
+<b>Внутренний текст</b>
+
+</p>
+
+<html>
+<head>
+</head>
+<body>
+ <div class="card">
+  <h1>Всем привет!</h1>
+   <div class="content">
+    <p>Удачи в решении задачи!</p>
+   </div>
+ </div>
+</body>
+
+</html>
+
+ решение
+ let card = document.querySelector(".content");
+ card.innerHTML = "<b>"+card.innerHTML+"</b>";
+ console.log(card);
+*/
+
+/*
+ Задача 1.8
+  В HTML-документе заданы элементы с числовым значением с классом price. Напишите скрипт, который считает общую сумму значений всех элементов с классом price и выводит в консоль.
+
+Пример заданного HTML-документа:
+
+<p class='price'>100</p>
+
+<p class='price'>200</p>
+
+Пример результата:
+
+300
+
+<html>
+<head>
+</head>
+<body>
+ <div class='card target'>
+  <h1 class='promo'>Всем привет!</h1>
+   <p>
+    <p class='secret target'>Очень рекомендую купить велосипед всего за <span class='price'>25000</span> рублей.</p>
+    <p class='secret target'>Очень рекомендую купить самокат всего за <span class='price'>10000</span> рублей.</p>
+    <p class='secret target'>Очень рекомендую купить лыжи всего за <span class='price'>14000</span> рублей.</p>
+   </p>
+ </div>
+</body>
+</html>
+
+решение
+let elems = document.querySelectorAll('span');
+let sum = 0;
+
+for (let elem of elems) {
+    console.log(elem.textContent);
+	let text = +elem.textContent;
+	sum+=text
+}
+
+console.log(sum);
+*/
+
+/*
+Задача 1.9
+
+В HTML-документе заданы теги с числовым значением с классом numeric. Напишите скрипт, который оборачивает в тег <b> все значения тега с классом numeric, которые меньше нуля.
+
+Пример заданного HTML-документа:
+
+<p class="numeric">62</p>
+
+<p class="numeric">-12</p>
+
+<p class="numeric">16</p>
+
+Пример результата:
+
+<p class="numeric">62</p>
+
+<p class="numeric"><b>-12</b></p>
+
+<p class="numeric">16</p>
+
+<html>
+<head>
+</head>
+<body>
+ <div class="card">
+  <h1>Всем привет!</h1>
+   <div class="content">
+    <p>Удачи в решении задачи!</p>
+    <p class="numeric">15</p>
+    <p class="numeric">25</p>
+   </div>
+   <p class="numeric">-5</p>
+ </div>
+</body>
+</html>
+
+решение
+let numerics = document.querySelectorAll('.numeric');
+for (let elem of numerics) {
+    let text = +elem.textContent;
+    if (text < 0) {
+        elem.innerHTML = "<b>" + elem.innerHTML + "</b>";
+    }
+}
+*/
+
+/*
+Задача 1.10
+
+Исправьте скрипт таким образом, чтобы в результате его работы в переменной result была сумма значений тегов с классом numeric.
+
+Пример заданного HTML-документа:
+
+<p class="numeric">62</p>
+
+<p class="numeric">-12</p>
+
+<p class="numeric">16</p>
+
+Пример результата:
+
+result = 66
+
+<html>
+<head>
+</head>
+<body>
+ <div class="card">
+  <h1>Всем привет!</h1>
+   <div class="content">
+    <p>Удачи в решении задачи!</p>
+    <p class="numeric">15</p>
+    <p class="numeric">25</p>
+   </div>
+   <p class="numeric">-5</p>
+ </div>
+</body>
+</html>
+
+
+решение
+
+let elems = document.getElementsByClassName("numeric");
+let result = 0;
+
+for (let elem of elems) {
+    console.log(elem.textContent);
+	let text = +elem.textContent;
+	result+=text
+}
+console.log(result);
+*/
+
+/*  
+Задача 1.11
+ В HTML-документе задан тег <ul> c классом cars.
+ Внутри этого тега есть несколько тегов <li>. Реализуйте скрипт, который считывает содержимое этих элементов <li>,
+ формирует из них массив и сохраняет в переменной cars.
+
+Пример заданного HTML-документа:
+
+<ul id="cars">
+
+<li>Tesla</li>
+
+<li>Opel</li>
+
+</ul>
+
+Пример результата:
+
+["Tesla',"Opel"]
+
+<html>
+<head>
+</head>
+<body>
+ <div class="card">
+   <div class="content">
+    <p>Удачи в решении задачи!</p>
+    <ul class="cars">
+   		<li>Audi</li><li>BMW</li><li>Hyundai</li>
+    </ul>
+    <ul>
+   		<li>Mazda</li><li>Peugeot</li><li>Toyota</li>
+    </ul>
+   </div>
+ </div>
+</body>
+</html>
+
+
+решение
+let text = document.querySelector('.cars');
+let car = text.children;
+const cars = [];
+for (let i = 0; i < car.length; i++) {
+    cars.push(car[i].textContent)
+}
+console.log(cars)
+
+решение2 ,но в сбере не проходит ,выводит в консоле 6 названий машин
+
+let cars =[];
+let caption = document.querySelectorAll("li");
+console.log(caption);
+
+for (let i =0;i<caption.length;i++ ) {
+       cars.push(caption[i].textContent)
+}
+console.log(cars);
+*/
+
+/*
+Задача 2.1
+
+Напишите скрипт, который создает новый элемент <p> в переменной new_element и добавляет его в тег с идентификатором root.
+ Созданный тег <p> должен содержать в себе фразу Ура! Мой скрипт отработал верно!
+
+Пример результата:
+
+<div id="root">
+
+<p>Ура! Мой скрипт отработал верно!</p>
+
+</div>
+
+<html>
+<head>
+</head>
+<body>
+ <div class="card">
+   <div class="content">
+    <p>Удачи в решении задачи!</p>
+    <div id='root'></div>
+   </div>
+ </div>
+</body>
+</html>
+
+решение
+let new_element = document.createElement("p");
+new_element.innerText ="Ура! Мой скрипт отработал верно!";
+let root = document.querySelector('#root');
+root.appendChild(new_element);
+console.log(root.innerHTML);
+*/
+
+/*
+Задача 2.2
+ 
+ В HTML-документе есть тег <p> c идентификатором title.
+ Напишите скрипт, который создает новый элемент <h2> в переменной new_element с текстовым содержимым Сегодня солнечно, минус 15 
+ и добавляет новый элемент сразу после тега с идентификатором title.
+
+Пример результата:
+
+<p id=”title”>О погоде<p>
+
+Пример результата:
+
+<p id=”title”>О погоде<p>
+
+<h2>Сегодня солнечно, минус 15</h2>
+
+<html>
+<head>
+</head>
+<body>
+ <div class="card">
+   <div class="content">
+    <p>Удачи в решении задачи!</p>
+    <p id="title">О погоде</p>
+   </div>
+ </div>
+</body>
+</html>
+
+решение
+
+let new_element = document.createElement("h2");
+new_element.innerText = "Сегодня солнечно, минус 15";
+
+let card = document.querySelector(".card");
+let content = card.querySelector(".content");
+
+
+content.appendChild(new_element);
+console.log(content.innerHTML);
+*/
+
+/*
+Задача 2.3
+В HTML-документе задан тег <ul> c элементами <li> внутри. 
+Напишите скрипт, который создает новый элемент <li> с текстовым содержимым Велосипед в переменной new_element и добавляет его в начало списка <ul>.
+
+Пример заданного HTML-документа:
+
+<ul><li>Самокат</li></ul>
+
+Пример результата:
+
+<ul><li>Велосипед</li><li>Самокат</li></ul>
+
+<html>
+<head>
+</head>
+<body>
+ <div class="card">
+   <div class="content">
+    <p>Удачи в решении задачи!</p>
+    <ul>
+    	<li>Ролики</li>
+    	<li>Лыжи</li>
+    </ul>
+   </div>
+ </div>
+</body>
+</html>
+
+решение
+let ul = document.querySelector('ul');
+let new_element = document.createElement("li");
+ new_element.innerHTML = "Велосипед";
+ ul.prepend(new_element);
+ console.log( new_element);
+ */
+
+/*
+Задача 2.4
+ В HTML-документе есть несколько тегов <div>.
+ Напишите скрипт, который всем тегам <div> добавляет класс adds.
+
+Пример заданного HTML-документа:
+
+<div><p>Реклама</p></div>
+
+<div>Баннер</div>
+
+Пример результата:
+
+<div class="adds"><p>Реклама</p></div>
+
+<div class="adds">Баннер</div>
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+    <p>Удачи в решении задачи!</p>
+    <div><p>Реклама 1</p></div>
+   <div>Реклама 2</div>
+   <div><span>Реклама 3</span></div>
+   <p>Реклама 4</p>
+ </section>
+</body>
+</html>
+
+решение
+let card = document.querySelector(".card");
+
+let content = card.getElementsByTagName('div')
+for (let i = 0; i < content.length; i++) {
+  content[i].className="adds";
+ console.log(content[i].className);
+}
+*/
+
+/*
+Задача 2.5
+
+В HTML-документе есть несколько тегов <p>. 
+Напишите скрипт, который присваивает каждому тегу идентификатор — от значения p_1 и до p_<n>. Тут n — количество параграфов.
+
+Пример заданного HTML-документа:
+
+<p>Абзац1<p>
+
+<p>Абзац2<p>
+
+Пример результата:
+
+<p id="p_1">Абзац1<p>
+
+<p id="p_2">Абзац2<p>
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+    <p>Удачи в решении задачи!</p>
+    <p>Только усердная работа может привести к результату.</p>
+   	<span>Занимайтесь понемногу, но каждый день.</span>
+ </section>
+</body>
+</html>
+
+ решение
+ 
+let paragraph = document.querySelectorAll("p");
+    let numId = 1;
+    for (let elem of paragraph) {
+        elem.id = 'p_' + numId;
+        numId++;
+    }
+*/
+
+/*    
+Заадча 2.6
+В HTML-документе заданы теги <p>. Напишите скрипт, который удаляет теги, внутри которых хранится текстовое значение Delete.
+
+Пример заданного HTML-документа:
+
+<p>Delete<p>
+
+<p>Абзац<p>
+
+<p>Delete<p>
+
+Пример результата:
+
+<p>Абзац<p>
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+    <p>Удачи в решении задачи!</p>
+    <p>Delete</p>
+   	<span>Занимайтесь понемногу, но каждый день.</span>
+ </section>
+ <p>Delete</p>
+</body>
+</html>
+
+ решение 1
+ 
+let link = document.querySelector("#body");
+let cars = document.getElementsByTagName("p")[1];
+let cars2 = document.getElementsByTagName("p")[2];
+cars.remove();
+cars2.remove()
+console.log(cars);
+console.log(cars2);
+
+решение 2
+
+let paragraph2 = document.querySelectorAll('p');
+    for (let elem of paragraph2) {
+        if (elem.textContent === 'Delete') {
+            elem.remove();
+        } 
+    }
+*/
+
+/*	
+Задача 2.7
+	
+	В скрипте объявлен массив values, который состоит из чисел.
+	В HTML-документе есть множество тегов <p> с классом elems.
+	Необходимо дописать скрипт так, чтобы он удалил все теги <p> с классом elems, значение которых входит в массив values.
+
+Пример значений:
+
+values = [10, 50, 100]
+Пример заданного HTML-документа:
+
+<p class=”elems”>50</p>
+
+<p class=”elems”>20</p>
+
+<p class=”elems”>10</p>
+
+Пример результата в HTML-документе:
+
+<p class=”elems”>20</p>
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+    <p>Удачи в решении задачи!</p>
+ 	<p class="elems">10</p>   
+ 	<p class="elems">15</p>   
+ 	<p class="elems">20</p>
+ 	<p class="elems">25</p>
+ </section>
+ 
+</body>
+</html>
+
+решение
+const values=[15, 20, 25];
+
+
+let paragraph3 = document.querySelectorAll('p');
+
+    for (let i = 0; i < values.length; i++) {
+        for (let j = 0; j < paragraph3.length; j++) {
+            if (String(values[i]) === paragraph3[j].textContent) {
+                paragraph3[j].remove();
+            }
+        }
+    } 
+*/
+
+/*
+Задача 2.8
+
+В HTML-документе заданы два <div> тега с идентификаторами div1 и div2.
+ Напишите скрипт, который позволит перенести содержимое тега с идентификатором div1 в конец тега с идентификатором div2.
+
+
+Пример заданного HTML-документа:
+
+<div id=”div1”><h2>Text</h2><span>subtext</span></div>
+
+<div id=”div2”><h1>Title</h1></div>
+
+Пример результата в HTML-документе:
+
+<div id=”div1”></div>
+
+<div id=”div2”><h1>Title</h1><h2>Text</h2><span>subtext</span></div>
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+ 	<div id="div1">
+		<p>свободно и трутни</p>
+		<p>улей покинуть вольны.</p>
+ 	</div>
+ 	<div id="div2">
+ 		<p>Рабочие пчёлы летают</p>
+ 	</div>
+ </section>
+</body>
+</html>
+  
+  решение
+  let div1 = document.querySelector('#div1');
+    let div2 = document.querySelector('#div2');
+    let text = div1.innerHTML;
+    console.log(text);
+    div2.insertAdjacentHTML("beforeend", text);
+     div1.innerHTML = '';
+*/
+
+/*
+Задача 2.9
+
+   В HTML-документе есть тег <ul> c идентификатором first. 
+   Внутри этого тега есть теги <li>. Напишите скрипт, который создает новый тег <li> в переменной new_element и добавляет в элемент <ul> с идентификатором first.
+   После добавления нового элемента выведите в консоль общее количество тегов <li> в теге <ul> с идентификатором first.
+
+
+Пример заданного HTML-документа:
+
+<ul id="first">
+
+<li>1</li>
+
+<li>2</li>
+
+<li>3</li>
+
+</ul>
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+ 	<ul id="first">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+	<li>4</li>
+ </section>
+</body>
+</html>
+
+  решение
+  let ul = document.querySelector('ul');
+    let new_element = document.createElement("li");
+    ul.appendChild(new_element);
+   let res = ul.querySelectorAll("li").length;
+   console.log(res);
+ */
+
+/*  
+Задача 2.10
+   
+   В скрипте объявлена переменная values, которая содержит массив из строк.
+   В HTML-верстке есть два тега <div> с классами div1 и div2.
+   Допишите скрипт так, чтобы все теги <p> из тега с идентификатором div1, значение которого встречается в списке values, 
+   переместились в тег с идентификатором div2.
+
+Пример значений:
+
+values = ["велосипед", "ролики", "лыжи"]
+Пример заданного HTML-документа:
+
+<div id="div1"><p>велосипед</p><p>лыжи</p><p>скейт</p></div>
+
+<div id="div2"></div>
+
+Пример результата в HTML-документе:
+
+<div id="div1"><p>скейт</p></div>
+
+<div id="div2"><p>велосипед</p><p>лыжи</p></div>
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+ 	<div id="div1">
+ 		<p>велосипед</p>
+ 		<p>лыжи</p>
+ 		<p>скейт</p>
+ 	</div>
+	<div id="div2"></div>
+ </section>
+</body>
+</html>
+
+решение
+
+const values = ["велосипед", "ролики", "лыжи"];
+    let div1 = document.querySelector('#div1');
+    let div2 = document.querySelector('#div2');
+    let p = div1.querySelectorAll('p');
+
+    for (let i = 0; i < values.length; i++) {
+                for (let j = 0; j < p.length; j++) {
+                    if (String(values[i]) === p[j].textContent) {
+                        div2.insertAdjacentHTML("afterbegin",'<p>' + p[j].textContent + '</p>');
+                          p[j].remove()
+                    }
+                }
+            } 
+*/
+
+/*			
+Задача 2.11
+
+			В скрипте объявлена переменная task, в которой хранится список из строк. В HTML-верстке есть тег <div> с идентификатором root. Допишите скрипт так, чтобы на основе значений списка сформировались теги <p> и добавились в элемент с идентификатором root.
+
+Пример значений:
+
+tasks = ["Проверить документы", "Отправить начальству", "Организовать собрание"]
+Пример результата в HTML-документе:
+
+<div>
+
+<p>Проверить документы</p><p>Отправить начальству</p><p>Организовать собрание</p>
+
+</div>
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+ 	<div id="root"></div>
+ </section>
+</body>
+</html>
+
+решение
+
+ let div = document.querySelector("div");
+        for (i=0;i< tasks.length;i++){
+        let p = document.createElement('p');
+        p.innerText = tasks[i]
+       div.appendChild( p)
+       console.log(p);
+    }
+	
+	решение 2
+	
+	 var div = document.querySelector('#root');
+    tasks.forEach(e => {
+      var p_tag = div.appendChild(document.createElement('p')); 
+      p_tag.innerText = e;
+      });
+*/
+
+/*	  
+ 2.12
+	  
+	  Напишите программу, которая считает количество <div>-, <p>- и <h2>-тегов и записывает его в объект tags, как в примере. 
+	  Выведите сформированный объект в консоль.
+
+Пример заданного HTML-документа:
+
+<p>100</p>
+
+<p>200</p>
+
+<div>50</div>
+
+<h2></h2>
+
+<h2>40</h2>
+
+Пример результата:
+
+{"div": 1, "p": 2, "h2": 2}
+
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+ 	<h2>Без заголовка было бы не так интересно.</h2>
+ 	<div id="root">
+ 		<p>Удачи в решении задачи!</p>
+ 		<p>Главное - упорство!</p>
+ 	</div>
+ 	<div id="footer">
+		<p>У вас получится.</p>
+ 	</div>
+ </section>
+</body>
+</html>
+
+решение
+let div = document.querySelectorAll('div');
+    let p = document.querySelectorAll('p');
+    let h2 = document.querySelectorAll('h2');
+    let tags = {};
+
+    tags['div'] = div.length;
+    tags['p'] = p.length;
+    tags['h2'] =h2.length
+
+    console.log(tags);
+	
+	решение2
+	let tags = {
+        div: 0,
+        p: 0,
+        h2: 0,
+      };
+      
+      let childEls = document.querySelectorAll(".card *");
+      for (let i = 0; i < childEls.length; i++) {
+        let tagName = childEls[i].tagName.toLowerCase();
+        tags[tagName] = (tags[tagName] || 0) + 1;
+      }
+      
+      console.log(tags);
+*/
+
+/*     
+Задача 2.13
+	  
+	  В HTML-документе есть тег <ul> с идентификатором tasks, и внутри него есть несколько тегов <li> с текстом. Напишите скрипт, который позволяет отсортировать элементы <li> в теге <ul> по длине содержимого.
+
+Пример заданного HTML-документа:
+
+<ul id="tasks">
+
+<li>Велосипед</li><li>Скейт</li><li>Самокат</li>
+
+</ul>
+
+Пример результата:
+
+<ul id="tasks">
+
+<li>Скейт</li><li>Самокат</li><li>Велосипед</li>
+
+</ul>
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<ul id="tasks">
+		<li>Велосипед</li>
+		<li>Скейт</li>
+		<li>Самокат</li>
+	</ul>
+ </section>
+</body>
+</html>
+
+
+решение1
+
+let ul = document.querySelector('#tasks');
+    let li = ul.querySelectorAll('li');
+    let result = [];
+
+    for (let i = 0; i < li.length; i++) {
+        result.push(li[i].textContent);
+    }
+
+    result.sort().reverse();
+    ul.innerHTML = '';
+
+    for (let elem of result) {
+        let newList = document.createElement('li');
+        newList.innerText = elem;
+        ul.appendChild(newList);
+    }
+	
+	решение 2
+	const list = document.querySelector('#tasks');
+        const elements = Array.from(list.children);
+        elements.sort((a,b) => a.textContent.length - b.textContent.length);
+        elements.forEach(e => list.append(e));
+*/
+
+/* 
+Задача 3.1
+	
+	В HTML-документе задан тег <div> с идентификатором div_elem.
+	Напишите скрипт, который добавит в стиль данного элемента ширину и высоту по 100 пикселей.
+	
+	<html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<div id="div_elem"></div>
+ </section>
+</body>
+</html>
+
+решение
+let card = document.querySelector(".card");
+ let items = card.querySelectorAll("#div_elem");
+
+
+ for (let i = 0; i < items.length; i++) {
+     items[i].style.width= "100px";
+     items[i].style.height= "100px";
+ }
+ */
+
+/* 
+ Задача 3.2
+ В HTML-документе задан тег <p> с идентификатором rainbow. 
+ Напишите скрипт, который указывает в стиле синий цвет текста (#2980b9).
+ 
+ <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<p id="rainbow">Ура! Вы молодец!</p>
+ </section>
+</body>
+</html>
+
+решение
+
+let card = document.querySelector(".card");
+let items = document.querySelectorAll("#rainbow");
+console.log(card);
+for (let i = 0; i < items.length; i++) {
+    items[i].style.color = "#2980b9";
+}
+*/
+
+/* 
+Задача 3.3
+
+В HTML-документе есть тег <label> и тег <input> с идентификатором target.
+ Необходимо написать скрипт, который присваивает тегу <label> атрибут, позволяющий привязать его к тегу <input>.
+ В результате при клике мышью на <label> тег <input> должен стать активным (в него должен переместиться курсор).
+ 
+ <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<label>Укажите свое имя: </label>
+	<p><input id="target"></p>
+ </section>
+</body>
+</html>
+
+
+решение
+let label = document.querySelector("label")
+console.log(label);
+
+label.setAttribute("for", "target");
+*/
+
+/*  
+Задача 3.4
+
+ В HTML-документе есть тег <p> c идентификатором rainbow.
+ Внутри этого тега указано число. Реализуйте скрипт, который делает преобразование в зависимости от следующих условий:
+
+Если числовое значение находится в диапазоне от 1 до 9 включительно, должно меняться значение атрибута style.
+ Цвет текста — на красный (#c0392b).
+Если числовое значение находится в диапазоне от 10 до 20 включительно — на коричневый (#e17055).
+В ином случае — на желтый (#fdcb6e).
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<p id="rainbow">10</p>
+ </section>
+</body>
+</html>
+
+решение;
+let p = document.querySelector("#rainbow");
+console.log(p.textContent);
+if(p.textContent >=1 && p.textContent <=9){
+    p.style.color = "#c0392b";
+}
+
+   else if(p.textContent >=10 && p.textContent <=20){
+        p.style.color = "#e17055";
+    }else{
+        p.style.color = "#fdcb6e";  
+    }
+	
+*/
+
+/* 
+Задача 3.5
+
+	В HTML-документе есть тег <div> с идентификатором photo. 
+	Внутри этого тега указана ссылка на картинку. Необходимо написать скрипт, который:
+
+заменит ссылку на тег <img> с этой картинкой
+,
+укажет размеры картинки в атрибуте style 100 на 100 пикселей
+
+.<html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<div id="photo">https://i.pinimg.com/564x/36/a1/91/36a19108f3088af7315231dc919b166a.jpg</div>
+ </section>
+</body>
+</html>
+решение1
+
+let photo = document.querySelector('#photo');
+    photo.textContent = '';
+
+    let img = document.createElement('img');
+    photo.appendChild(img);
+
+    img.src = 'https://i.pinimg.com/564x/36/a1/91/36a19108f3088af7315231dc919b166a.jpg';
+    img.style.width = "100px";
+    img.style.height = "100px";
+	
+	решение2
+	
+	    var rainbow = document.querySelector('#photo');
+ var card = document.querySelector('.card');
+ var urlImg = rainbow.innerText;
+ var img = document.createElement('img');
+ img.setAttribute('src', urlImg);
+ img.style.width = '100px';
+ img.style.height = '100px';
+ card.append(img, rainbow);
+ rainbow.remove();
+ */
+
+/* 
+Задача 3.6
+ В HTML-документе задан тег <select> c идентификатором numbers.
+ Напишите скрипт, который добавит внутрь этого тега несколько тегов <option> со значениями от 10 до 550 с шагом 10.
+ Значение у тега <option> должно быть указано внутри и в атрибуте value.
+ 
+ <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<select id="numbers">
+	</select>
+ </section>
+</body>
+</html>
+
+решение:
+1.
+var numbers = document.querySelector('#numbers');
+for(var i =10; i<=550; i+=10){
+  var option = document.createElement('option');
+  option.setAttribute('value', i);
+  option.textContent= i;
+  numbers.appendChild(option);
+}
+console.log(option);
+
+ 2.
+ let select = document.querySelector('#numbers');
+console.log(select);
+for(i =10;i<=550;i+=10) {
+let option = document.createElement('option');
+    select.appendChild(option);
+    option.value = i;
+    option.textContent =i;
+}
+*/
+
+/* 
+Задача 3.7
+
+В HTML-документе задан тег <select>. В скрипте объявлена переменная countries, в которой указаны некоторые страны.
+ Доработайте скрипт так, чтобы в тег <select> добавились теги <option> по одному на каждую страну из массива countries.
+ В качестве значения тега option укажите название страны, а в качестве атрибута — value первые две буквы страны в нижнем регистре (маленькими буквами).
+ <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<select>
+	</select>
+ </section>
+</body>
+</html>
+
+решение:
+
+const countries = ["Armenia", "Russia", "Germany", "France", "Georgia"];
+let select = document.querySelector('select');
+console.log(select);
+ for(let elem of countries) {
+    console.log(elem);
+    let opt = document.createElement('option');
+   select.append(opt);
+    opt.textContent= elem;
+    opt.value = elem.substring(0,2).toLowerCase(); 
+    console.log(opt);
+ }  
+*/
+
+/* 
+Задача 4.1
+
+ В HTML-документе задан тег <button> с идентификатором btn и тег <p> с идентификатором val.
+ Напишите скрипт, который выводит в консоль содержимое тега <p> при клике на кнопку.
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<p id="val">Все работает!</p>
+	<button id="btn">Жмак!</button>
+ </section>
+</body>
+</html>
+
+
+решение:
+
+let card = document.querySelector(".card");
+
+
+function buttonClick() {
+    let val = card.querySelector("#val");
+    console.log(val.textContent)
+  }
+
+  let button = card.querySelector("#btn");
+  button.addEventListener("click", buttonClick);
+  */
+
+/* 
+Задача 4.2
+
+  В HTML-документе задан тег <button> с идентификатором btn и тег <input> с идентификатором val.
+  Напишите скрипт, который выводит в консоль значение тега <input> при клике на кнопку.
+  <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<input value="Все работает!" id="val">
+	<button id="btn">Жмак!</button>
+ </section>
+</body>
+</html>
+ решение 1;
+ 
+ let card = document.querySelector(".card");
+function buttonClick() {
+    let input = card.querySelector("input")
+    console.log(input.getAttribute("value"));
+}
+let button = card.querySelector("#btn")
+button.addEventListener("click",buttonClick)
+
+решение2:
+let button = document.querySelector('#btn').addEventListener('click', function() {
+       let input = document.querySelector('#val');
+       console.log(input.getAttribute('value'))
+    });
+*/
+
+/* 
+Задача 4.3
+
+	В HTML-документе задан тег <div> c идентификатором square. 
+	Он представляет собой синий квадрат. 
+	Напишите скрипт, который позволяет сделать <div> прозрачным (opacity: 0) при клике по нему.
+	
+	<html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<div id="square"></div>
+ </section>
+</body>
+</html>
+
+решение1
+let card = document.querySelector(".card");
+document.addEventListener("click", clickColor);
+
+function clickColor() {
+    
+
+   card.querySelector("#square").style.opacity = 0;
+          
+}
+
+решение2
+       let square = document.querySelector("#square");
+square.addEventListener("click", function(){
+square.style.opacity = 0;
+});
+*/
+
+/* 
+Задача 4.4
+
+В HTML-документе есть тег <button> с идентификатором clicker.
+ Напишите скрипт, который добавит обработку события клика на кнопку с идентификатором clicker. 
+При нажатии на кнопку число внутри тега <button> должно увеличиваться на один.
+
+<html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<button id="clicker">0</button>
+ </section>
+</body>
+</html>
+
+
+решение
+let button = document.querySelector("#clicker");
+button.addEventListener("click",function(){
+  button.textContent = ++ button.textContent;
+})
+*/
+
+/* 
+Задача 4.5
+
+В HTML-документе задан тег <button> с идентификатором delete и тег <ul> c идентификатором points и c элементами <li> внутри.
+ Напишите скрипт, который позволяет удалить последний элемент <li> в списке <ul> при нажатии на кнопку.
+ 
+ <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<button id="delete">Delete</button>
+	<ul id="points">
+		<li>Пункт 1</li>
+		<li>Пункт 2</li>
+		<li>Пункт 3</li>
+		<li>Пункт 4</li>
+		<li>Пункт 5</li>
+		<li>Пункт 6</li>
+	</ul>
+ </section>
+</body>
+</html>
+
+решение
+
+let button = document.getElementById("delete");
+button.addEventListener("click",deleteElem);
+ function deleteElem() {
+    let points = document.getElementById("points");
+    console.log(points);
+    let li = points.getElementsByTagName("li");
+     console.log(li);
+let result = li[li.length-1];
+points.removeChild(result);
+
+ }
+ */
+
+/* 
+Задача  4.6
+
+ В HTML-документе задан тег <div> c идентификатором square в виде красного квадрата.
+ У него есть атрибут style с указанными высотой и шириной в 100 пикселей.
+ Напишите скрипт, который уменьшает ширину и высоту квадрата на 10% при клике по нему.
+ 
+ <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<div id="square" style="width: 100px; height: 100px;"></div>
+ </section>
+</body>
+</html>
+
+решение
+let square = document.getElementById("square");
+ square.addEventListener("click",styleClick) 
+    function styleClick(){
+        square.style.height = "90px";
+        square.style.width = "90px";
+        console.log(square.style.width);
+    console.log(square.style.height);
+    }
+	
+	
+	или
+	btn = document.querySelector("#square");
+
+
+ btn.onclick = () => {
+     btn.style.width = '90px';
+     btn.style.height = '90px';
+     console.log(btn.style.width);
+     console.log(btn.style.height);
+ }
+ */
+
+ /* 
+Задача 4.7
+ 
+ В HTML-документе задан тег <button> с классом copy.
+ Напишите скрипт, который позволит при нажатии на кнопку <button> создать ее копию и расположить в конце тега body.
+ 
+ <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<button class="copy">Everything's a copy of a copy of a copy</button>
+ </section>
+</body>
+</html>
+
+решение:
+
+let card = document.querySelector(".card");
+card.addEventListener("click", buttonClick);
+console.log(card);
+
+function buttonClick() {
+let copy  = card.querySelector(".copy");
+let clone = copy.cloneNode(true);
+
+card.appendChild(clone);
+console.log(clone);
+}
+*/
+
+/* 
+Задача  4.8
+  
+  В HTML-документе есть несколько тегов <p>.
+  Внутри них указаны числа. 
+  Напишите скрипт, который позволяет при нажатии на любой параграф увеличить его содержимое на единицу.
+  
+  <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<p>1</p>
+	<p>2</p>
+	<p>3</p>
+	<p>4</p>
+	<p>5</p>
+	<p>6</p>
+ </section>
+</body>
+</html>
+
+
+  решение;
+  
+  let p = document.querySelectorAll("p");
+for(elem of p){
+elem.addEventListener("click", function() {
+this.textContent = parseInt(this.textContent)+1;
+ })
+}
+*/
+
+/* 
+Задача 4.9
+   
+   В HTML-документе есть два тега <div> с идентификаторами div1 и div2 с элементами <p> внутри.
+   Напишите скрипт, который перемещает тег <p> из одного тега <div> в другой при клике по этому элементу <p>.
+   <html>
+<head>
+</head>
+<body>
+ <section class="card">
+	<div id="div1">
+		<p>Пункт 1</p>
+		<p>Пункт 2</p>
+		<p>Пункт 3</p>
+	</div>
+
+	<div id="div2">
+		<p>Пункт 4</p>
+		<p>Пункт 5</p>
+		<p>Пункт 6</p>
+	</div>
+
+ </section>
+</body>
+</html>
+ решение:
+ 
+ let p = document.querySelectorAll("p")
+ for(element of p){
+     element.addEventListener("click", function() {
+     if (this.parentNode.id === "div1"){
+     document.querySelector("#div2").appendChild(this);
+     } else { document.querySelector("#div1").appendChild(this);}
+     })
+ }
+/* 
+
+

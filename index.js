@@ -3887,7 +3887,6 @@ console.log(clone);
 </body>
 </html>
 
-
   решение;
   
   let p = document.querySelectorAll("p");
@@ -3934,5 +3933,3 @@ this.textContent = parseInt(this.textContent)+1;
      })
  }
 /* 
-
-
